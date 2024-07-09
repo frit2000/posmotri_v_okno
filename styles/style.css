@@ -62,11 +62,12 @@ ol {
   inline-size: 100%;
   block-size: 386px;
   object-fit: cover;
+  object-position: center;
 }
 
 .result__video-container {
   position: relative;
-  padding-block-end: 16px;
+  margin-block-end: 16px;
 }
 
 .search-form {
@@ -79,6 +80,7 @@ ol {
 }
 
 .search-form__fieldset-title {
+
   font-size: 18px;
   font-weight: 400;
   line-height: 21.6px;
@@ -94,10 +96,10 @@ ol {
 
 .search-form__textfield {
   appearance: none;
-  font-family: 'Fira Sans Condensed', sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 21.6px;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
   background-color: transparent;
   min-inline-size: 225px;
   border-block: 1px;
@@ -122,9 +124,8 @@ ol {
 }
 
 .search-form__textfield:active {
-  outline: none;
-  border: 1px solid #fff;
-
+  outline: 1px solid #fff;
+  outline-offset: 1px;
 }
 
 .search-form__label:hover .search-form__label-text {
@@ -143,6 +144,10 @@ ol {
   block-size: 15px;
   background-color: #fff;
   visibility: hidden;
+}
+
+.search-form__checkbox{
+  appearance: none;
 }
 
 .search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
@@ -200,7 +205,7 @@ ol {
 }
 
 .title {
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 75px;
   font-weight: 700;
   line-height: 70.5px;
@@ -214,15 +219,22 @@ ol {
 
 .content__list {
   position: relative;
-  max-block-size: 298px;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  block-size: 298px;
+  /* в шаблоне 399, по 2px с каждой стороны для
+  padding тут и для margin в ссылке и еще 8 пикселей на скролл */
+  inline-size: 415px;
+  overflow-y: auto;
   padding: 0 2px 2px; /* чтобы было видно обводку кнопки при фокусе */
 }
 
+
 .content__list-item {
-  padding-block-end: 30px;
+  padding-bottom: 30px;
   display: flex;
+}
+
+.content__list-item:last-of-type {
+  padding-block-end: 0;
 }
 
 .content__card-link {
@@ -263,12 +275,16 @@ ol {
 }
 
 .content__video-card-title {
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
   text-transform: uppercase;
   padding-block-end: 6px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-inline-size: 192px;
 }
 
 .content__video-card-description {
@@ -281,4 +297,5 @@ ol {
   inline-size: 194px;
   block-size: 103px;
   object-fit: cover;
+  object-position: center;
 }
